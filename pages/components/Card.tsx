@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { CardProps } from "../cardData";
+import { CardProps } from "../../public/cardData";
 import Link from "next/link";
 import { TiFlash } from "react-icons/ti";
 import { useState } from "react";
@@ -18,7 +18,7 @@ const Card = ({ title, description, image, link }: CardProps) => {
         }}
         className="hover:drop-shadow-[0_0_5px_rgba(149,205,239,0.75)]">
         <div className="box-border flex relative w-full rounded-3xl overflow-hidden h-[150px] group hover:scale-[1.03] hover:border-[#95CDEF] hover:border-[6px] transition-transform bg-white border-[4px] border-[#cacaca]">
-          <Link href={link} target="_blank" className="w-full">
+          <Link href={link ? link : ""} target="_blank" className="w-full">
             {title === "FlashQ" && (
               <FlashQ
                 title={title}
