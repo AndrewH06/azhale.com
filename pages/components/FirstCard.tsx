@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-export const FirstCard = () => {
+const FirstCard = () => {
   const [delay, setDelay] = useState(0);
   const [hover, setHover] = useState(false);
   return (
@@ -40,3 +40,5 @@ export const FirstCard = () => {
     </div>
   );
 };
+
+export default FirstCard;

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { TiFlash } from "react-icons/ti";
 import { useState } from "react";
 
-export const Card = ({ title, description, image, link }: CardProps) => {
+const Card = ({ title, description, image, link }: CardProps) => {
   const [hover, setHover] = useState(false);
 
   return (
@@ -56,6 +56,8 @@ export const Card = ({ title, description, image, link }: CardProps) => {
     </div>
   );
 };
+
+export default Card;
 
 const FlashQ = ({ title, description, image, link }: CardProps) => {
   return (

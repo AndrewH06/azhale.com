@@ -1,8 +1,8 @@
 import Head from "next/head";
-import { Card } from "./components/Card";
-import { cardData } from "./cardData";
-import { BlankCard } from "./components/BlankCard";
-import { FirstCard } from "./components/FirstCard";
+import Card from "./components/Card";
+import cardData from "./cardData";
+import BlankCard from "./components/BlankCard";
+import FirstCard from "./components/FirstCard";
 
 export default function Home() {
   return (

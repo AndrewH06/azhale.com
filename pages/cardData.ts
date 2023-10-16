@@ -5,7 +5,7 @@ export interface CardProps {
   image: string;
 }
 
-export const cardData: CardProps[] = [
+const cardData: CardProps[] = [
   {
     title: "FlashQ",
     link: "https://flashq.vercel.app",
@@ -37,3 +37,5 @@ export const cardData: CardProps[] = [
     image: "",
   },
 ];
+
+export default cardData;
