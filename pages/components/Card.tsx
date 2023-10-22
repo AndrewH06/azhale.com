@@ -165,7 +165,7 @@ const Workshop = ({ image, title, description, link }: CardProps) => {
       onMouseLeave={() => {
         setHover(false);
       }}
-      className="font-mono w-full h-full flex flex-col bg-[#212121] px-5 py-4 gap-1">
+      className="font-mono w-full h-full flex flex-col bg-[#212121] pl-5 pr-4 py-4 gap-1">
       <div className="text-amber-400 flex">
         <p className="text-violet-400">ASA&nbsp;</p>X&nbsp;
         <p className="text-cyan-400">WiCS&nbsp;</p>
