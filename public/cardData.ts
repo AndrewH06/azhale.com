@@ -27,7 +27,7 @@ const cardData: CardProps[] = [
   {
     title: "ASA X WiCS Workshop",
     link: "https://github.com/AggieSportsAnalytics/WiCS-ASA-Workshop",
-    description: "Taught students machine Learning",
+    description: "",
     image: "",
   },
   {

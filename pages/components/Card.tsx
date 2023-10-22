@@ -2,7 +2,7 @@ import Image from "next/image";
 import { CardProps } from "../../public/cardData";
 import Link from "next/link";
 import { TiFlash } from "react-icons/ti";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Card = ({ title, description, image, link }: CardProps) => {
   const [hover, setHover] = useState(false);
@@ -18,7 +18,10 @@ const Card = ({ title, description, image, link }: CardProps) => {
         }}
         className="hover:drop-shadow-[0_0_5px_rgba(149,205,239,0.75)]">
         <div className="box-border flex relative w-full rounded-3xl overflow-hidden h-[150px] group hover:scale-[1.03] hover:border-[#95CDEF] hover:border-[6px] transition-transform bg-white border-[4px] border-[#cacaca]">
-          <Link href={link ? link : ""} target="_blank" className="w-full">
+          <Link
+            href={link ? link : ""}
+            target="_blank"
+            className="w-full cursor-wii focus:cursor-wii">
             {title === "FlashQ" && (
               <FlashQ
                 title={title}
@@ -37,6 +40,14 @@ const Card = ({ title, description, image, link }: CardProps) => {
             )}
             {title === "Listento.Day" && (
               <ListentoDay
+                title={title}
+                description={description}
+                image={image}
+                link={link}
+              />
+            )}
+            {title == "ASA X WiCS Workshop" && (
+              <Workshop
                 title={title}
                 description={description}
                 image={image}
@@ -120,4 +131,94 @@ const ListentoDay = ({ image, title, description, link }: CardProps) => {
       />
     </div>
   );
+};
+
+const Workshop = ({ image, title, description, link }: CardProps) => {
+  const [hover, setHover] = useState(false);
+  const [hover1, setHover1] = useState(false);
+  const [hover2, setHover2] = useState(false);
+  const [hover3, setHover3] = useState(false);
+
+  useEffect(() => {
+    if (hover) {
+      setTimeout(() => {
+        setHover1(true);
+      }, 0);
+      setTimeout(() => {
+        setHover2(true);
+      }, 1350);
+      setTimeout(() => {
+        setHover3(true);
+      }, 2500);
+    } else {
+      setHover1(false);
+      setHover2(false);
+      setHover3(false);
+    }
+  }, [hover]);
+
+  return (
+    <div
+      onMouseEnter={() => {
+        setHover(true);
+      }}
+      onMouseLeave={() => {
+        setHover(false);
+      }}
+      className="font-mono w-full h-full flex flex-col bg-[#212121] px-5 py-4 gap-1">
+      <div className="text-amber-400 flex">
+        <p className="text-violet-400">ASA&nbsp;</p>X&nbsp;
+        <p className="text-cyan-400">WiCS&nbsp;</p>
+        Workshop
+      </div>
+      <div className="flex text-gray-200 items-center">
+        <p className="text-sm text-[0.8rem]">
+          {!hover && (
+            <div className="w-[0.5rem] h-[1rem] bg-gray-200 animate-blink" />
+          )}
+
+          {hover && hover1 && (
+            <div className="flex">
+              <AnimatedText text={"Created and led a workshop "} speed={50} />
+              {!hover2 && (
+                <div className="w-[0.5rem] h-[1rem] bg-gray-200 animate-blink" />
+              )}
+            </div>
+          )}
+          {hover && hover2 && (
+            <div className="flex">
+              <AnimatedText text={"to teach 50+ students "} speed={50} />
+              {!hover3 && (
+                <div className="w-[0.5rem] h-[1rem] bg-gray-200 animate-blink" />
+              )}
+            </div>
+          )}
+          {hover && hover3 && (
+            <div className="flex">
+              <AnimatedText text={"machine learning."} speed={50} />
+              <div className="w-[0.5rem] h-[1rem] bg-gray-200 animate-blink" />
+            </div>
+          )}
+        </p>
+      </div>
+    </div>
+  );
+};
+
+const AnimatedText = ({ text, speed }: { text: string; speed: number }) => {
+  const [currentText, setCurrentText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (currentIndex < text.length) {
+      const timeout = setTimeout(() => {
+        setCurrentText((prevText) => prevText + text[currentIndex]);
+        setCurrentIndex((prevIndex) => prevIndex + 1);
+      }, speed);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [currentIndex, speed, text]);
+
+  return <span>{currentText}</span>;
 };

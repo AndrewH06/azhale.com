@@ -1,9 +1,10 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const FirstCard = () => {
   const [delay, setDelay] = useState(0);
   const [hover, setHover] = useState(false);
+
   return (
     <div className="relative">
       <div
@@ -18,14 +19,14 @@ const FirstCard = () => {
         }}>
         <div className="box-border flex flex-col items-center justify-center relative w-full rounded-3xl overflow-hidden h-[150px] group hover:scale-[1.03] hover:border-[#95CDEF] hover:border-[6px] transition-transform bg-gradient-to-t from-white from-10% to-white to-50% via-gray-100 via-30% border-[4px] border-[#cacaca]">
           <Image
-            className="group-hover:rotate-180 group-hover:translate-y-[100px] transition-transform duration-1000 delay-300"
+            className="group-hover:rotate-180 group-hover:translate-y-[110px] transition-transform duration-1000 delay-300"
             src="/cd.png"
             alt="cd"
-            width={90}
-            height={90}
+            width={100}
+            height={100}
           />
           <div
-            className="absolute group-hover:w-[120px] w-0 z-2 bg-white border-t-gray-200 border-t-[3px] bottom-0 h-[18px] duration-200"
+            className="absolute group-hover:w-[120px] w-0 z-2 bg-white border-t-gray-200 border-t-[3px] bottom-0 h-[16px] duration-200"
             style={{ transitionDelay: `${delay}ms` }}
           />
         </div>
