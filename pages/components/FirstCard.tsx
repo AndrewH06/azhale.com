@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 const FirstCard = () => {
   const [delay, setDelay] = useState(0);
@@ -29,15 +30,19 @@ const FirstCard = () => {
             className="absolute group-hover:w-[120px] w-0 z-2 bg-white border-t-gray-200 border-t-[3px] bottom-0 h-[16px] duration-200"
             style={{ transitionDelay: `${delay}ms` }}
           />
+          <AnimatePresence>
+            {hover && (
+              <motion.div
+                className="text-gray-300 font-semibold absolute tracking-wider"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.5 }}>
+                Please insert disk
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
-      {hover && (
-        <div className="absolute w-full justify-center flex pt-2 z-50">
-          <p className="text-gray-500 text-xl bg-white px-6 rounded-full border-[2px] border-[#cacaca]">
-            Profile
-          </p>
-        </div>
-      )}
     </div>
   );
 };
