@@ -172,7 +172,7 @@ const Workshop = ({ image, title, description, link }: CardProps) => {
         Workshop
       </div>
       <div className="flex text-gray-200 items-center">
-        <div className="text-sm text-[12.8px]">
+        <div className="text-sm text-[12.5px]">
           {!hover && (
             <div className="w-[0.5rem] h-[1rem] bg-gray-200 animate-blink" />
           )}
