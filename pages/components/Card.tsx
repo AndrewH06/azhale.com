@@ -172,14 +172,13 @@ const Workshop = ({ image, title, description, link }: CardProps) => {
         Workshop
       </div>
       <div className="flex text-gray-200 items-center">
-        <p className="text-sm text-[0.8rem]">
+        <div className="text-sm text-[12.8px]">
           {!hover && (
             <div className="w-[0.5rem] h-[1rem] bg-gray-200 animate-blink" />
           )}
-
           {hover && hover1 && (
             <div className="flex">
-              <AnimatedText text={"Created and led a workshop "} speed={50} />
+              <AnimatedText text={"Created and led a workshop"} speed={50} />
               {!hover2 && (
                 <div className="w-[0.5rem] h-[1rem] bg-gray-200 animate-blink" />
               )}
@@ -199,7 +198,7 @@ const Workshop = ({ image, title, description, link }: CardProps) => {
               <div className="w-[0.5rem] h-[1rem] bg-gray-200 animate-blink" />
             </div>
           )}
-        </p>
+        </div>
       </div>
     </div>
   );
