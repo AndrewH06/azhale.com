@@ -179,23 +179,22 @@ const Workshop = ({ image, title, description, link }: CardProps) => {
           {hover && hover1 && (
             <div className="flex">
               <AnimatedText text={"Created and led workshop"} speed={50} />
-              {!hover2 && (
+              {/* {!hover2 && (
                 <div className="w-[0.5rem] h-[1rem] bg-gray-200 animate-blink" />
-              )}
+              )} */}
             </div>
           )}
           {hover && hover2 && (
             <div className="flex">
               <AnimatedText text={"to teach 50+ students"} speed={50} />
-              {!hover3 && (
+              {/* {!hover3 && (
                 <div className="w-[0.5rem] h-[1rem] bg-gray-200 animate-blink" />
-              )}
+              )} */}
             </div>
           )}
           {hover && hover3 && (
             <div className="flex">
               <AnimatedText text={"machine learning."} speed={50} />
-              <div className="w-[0.5rem] h-[1rem] bg-gray-200 animate-blink" />
             </div>
           )}
         </div>
@@ -219,5 +218,12 @@ const AnimatedText = ({ text, speed }: { text: string; speed: number }) => {
     }
   }, [currentIndex, speed, text]);
 
-  return <span>{currentText}</span>;
+  return (
+    <span className="flex">
+      {currentText}
+      {(currentIndex < text.length || currentText == "machine learning.") && (
+        <div className="w-[0.5rem] h-[1rem] bg-gray-200 animate-blink" />
+      )}
+    </span>
+  );
 };
