@@ -47,6 +47,11 @@ const Card = ({ title, description, image, link }: CardProps) => {
               />
             )}
             {title == "ASA X WiCS Workshop" && <Workshop />}
+            {title === "Coming soon..." && (
+              <div className="flex items-center justify-center w-full h-full">
+                <p className="text-lg text-gray-400">{title}</p>
+              </div>
+            )}
           </Link>
         </div>
       </div>
