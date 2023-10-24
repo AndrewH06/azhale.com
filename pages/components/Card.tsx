@@ -46,14 +46,7 @@ const Card = ({ title, description, image, link }: CardProps) => {
                 link={link}
               />
             )}
-            {title == "ASA X WiCS Workshop" && (
-              <Workshop
-                title={title}
-                description={description}
-                image={image}
-                link={link}
-              />
-            )}
+            {title == "ASA X WiCS Workshop" && <Workshop />}
           </Link>
         </div>
       </div>
@@ -133,7 +126,7 @@ const ListentoDay = ({ image, title, description, link }: CardProps) => {
   );
 };
 
-const Workshop = ({ image, title, description, link }: CardProps) => {
+const Workshop = () => {
   const [hover, setHover] = useState(false);
   const [hover1, setHover1] = useState(false);
   const [hover2, setHover2] = useState(false);
