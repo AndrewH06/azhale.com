@@ -138,6 +138,12 @@ const Workshop = ({ image, title, description, link }: CardProps) => {
   const [hover1, setHover1] = useState(false);
   const [hover2, setHover2] = useState(false);
   const [hover3, setHover3] = useState(false);
+  const [hoverASA, setHoverASA] = useState(false);
+  const [hoverWiCS, setHoverWiCS] = useState(false);
+
+  const line1: string = "Created and led workshop";
+  const line2: string = "to teach students";
+  const line3: string = "machine learning.";
 
   useEffect(() => {
     if (hover) {
@@ -146,10 +152,10 @@ const Workshop = ({ image, title, description, link }: CardProps) => {
       }, 0);
       setTimeout(() => {
         setHover2(true);
-      }, 1350);
+      }, line1.length * 50 + 50);
       setTimeout(() => {
         setHover3(true);
-      }, 2500);
+      }, (line1.length + line2.length) * 50 + 100);
     } else {
       setHover1(false);
       setHover2(false);
@@ -167,10 +173,32 @@ const Workshop = ({ image, title, description, link }: CardProps) => {
       }}
       className="font-mono w-full h-full flex flex-col bg-[#212121] pl-5 pr-4 py-4 gap-1">
       <div className="text-amber-400 flex">
-        <p className="text-violet-400">ASA&nbsp;</p>X&nbsp;
-        <p className="text-cyan-400">WiCS&nbsp;</p>
-        Workshop
+        <p
+          onMouseEnter={() => setHoverASA(true)}
+          onMouseLeave={() => setHoverASA(false)}
+          className="text-violet-400 hover:bg-gray-500">
+          ASA
+          {hoverASA && (
+            <div className="absolute tracking-tighter py-[0.125rem] z-50 translate-y-[5px] bg-[#212121] border-[0.5px] px-2">
+              Aggie Sports Analytics
+            </div>
+          )}
+        </p>
+        &nbsp;+&nbsp;
+        <p
+          onMouseEnter={() => setHoverWiCS(true)}
+          onMouseLeave={() => setHoverWiCS(false)}
+          className="text-cyan-400 hover:bg-gray-500">
+          WiCS
+          {hoverWiCS && (
+            <div className="absolute py-[0.125rem] z-50 translate-y-[5px] bg-[#212121] border-[0.5px] px-2">
+              Women in CS
+            </div>
+          )}
+        </p>
+        &nbsp;Workshop
       </div>
+
       <div className="flex text-gray-200 items-center">
         <div className="text-sm text-[.8rem]">
           {!hover && (
@@ -178,17 +206,17 @@ const Workshop = ({ image, title, description, link }: CardProps) => {
           )}
           {hover && hover1 && (
             <div className="flex">
-              <AnimatedText text={"Created and led workshop"} speed={50} />
+              <AnimatedText text={line1} speed={50} />
             </div>
           )}
           {hover && hover2 && (
             <div className="flex">
-              <AnimatedText text={"to teach 50+ students"} speed={50} />
+              <AnimatedText text={line2} speed={50} />
             </div>
           )}
           {hover && hover3 && (
             <div className="flex">
-              <AnimatedText text={"machine learning."} speed={50} />
+              <AnimatedText text={line3} speed={50} />
             </div>
           )}
         </div>
