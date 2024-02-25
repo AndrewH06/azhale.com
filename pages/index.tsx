@@ -15,13 +15,13 @@ export default function Home() {
       <Head>
         <title>Andrew Hale</title>
       </Head>
-      <div className="w-screen h-screen bg-black flex justify-center">
-        <div
-          style={{
-            background:
-              "repeating-linear-gradient(0deg,#E3E3E3,#E3E3E3 5px,#F5F5F5 3px,#F5F5F5 6px)",
-          }}
-          className="cursor-wii flex justify-center h-screen w-[1512px] px-auto py-24">
+      <div
+        style={{
+          background:
+            "repeating-linear-gradient(0deg,#E3E3E3,#E3E3E3 5px,#F5F5F5 3px,#F5F5F5 6px)",
+        }}
+        className="cursor-wii flex justify-center h-screen w-screen">
+        <div className="h-[832px] w-[1512px] px-auto py-24">
           <div className="overflow-x-scroll">
             <div className="w-[1128px] p-2 grid grid-cols-4 grid-flow-row gap-4 mx-auto">
               <motion.div
@@ -54,8 +54,8 @@ export default function Home() {
                   ))}
             </div>
           </div>
-          <MenuBar />
         </div>
+        <MenuBar />
       </div>
     </>
   );

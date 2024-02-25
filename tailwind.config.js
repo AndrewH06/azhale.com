@@ -27,6 +27,9 @@ module.exports = {
         turn: "turn 8s linear infinite",
         blink: "blink 1s steps(1, end) infinite",
       },
+      backgroundImage: {
+        "bar-pattern": "url('/bar-repeat.png')",
+      },
     },
   },
   plugins: [],
