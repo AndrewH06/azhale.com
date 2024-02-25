@@ -9,11 +9,11 @@ const MenuBar = () => {
   const date = new Date();
 
   return (
-    <div className="z-50 fixed w-full bottom-0">
+    <div className="z-50 fixed w-[1512px] bottom-0">
       <div className="absolute w-full flex flex-col items-center pt-3">
         <h1 className="text-4xl font-mono text-gray-400">Andrew Z Hale</h1>
         <p className="pt-12 text-2xl text-gray-600 tracking-widest">
-          {days[date.getDay()]} {date.getMonth()}/{date.getDate()}
+          {days[date.getDay()]} {date.getMonth() + 1}/{date.getDate()}
         </p>
       </div>
       <div className="absolute w-full h-full flex px-28 justify-between items-center">
