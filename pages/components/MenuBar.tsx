@@ -2,20 +2,25 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useSound } from "use-sound";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 import { BsLinkedin } from "react-icons/bs";
 import { IoMdMail } from "react-icons/io";
 import { HiVolumeOff, HiVolumeUp } from "react-icons/hi";
-import useWindowDimensions from "../../public/useWindowDimension";
 import select from "../../public/audio/sfx/select.mp3";
 import click from "../../public/audio/sfx/click.mp3";
 
 interface Props {
+  size: { width: number | null; height: number | null };
   audioPlaying: boolean;
   handleAudioToggle: () => void;
 }
 
-const MenuBar: React.FC<Props> = ({ audioPlaying, handleAudioToggle }) => {
+const MenuBar: React.FC<Props> = ({
+  size,
+  audioPlaying,
+  handleAudioToggle,
+}) => {
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const date = new Date();
 
@@ -23,12 +28,13 @@ const MenuBar: React.FC<Props> = ({ audioPlaying, handleAudioToggle }) => {
   const [clickSound] = useSound(click);
 
   return (
-    <div className="z-50 flex justify-center fixed bottom-0">
+    <div
+      className="z-50 flex justify-center fixed bottom-0">
       <FillerBar />
       <div className="w-[1512px]">
-        <div className="absolute w-[1512px] flex flex-col items-center pt-3">
+        <div className="absolute w-[1512px] flex flex-col items-center lg:pt-3 md:pt-1">
           <h1 className="text-4xl font-mono text-gray-400">Andrew Z Hale</h1>
-          <p className="pt-12 text-2xl text-gray-600 tracking-widest">
+          <p className="lg:pt-12 md:pt-4 text-2xl text-gray-600 tracking-widest">
             {days[date.getDay()]} {date.getMonth() + 1}/{date.getDate()}
           </p>
         </div>
@@ -41,23 +47,24 @@ const MenuBar: React.FC<Props> = ({ audioPlaying, handleAudioToggle }) => {
               onClick={() => {
                 handleAudioToggle();
                 clickSound();
-              }}
-            >
-              <button className="hover:cursor-wii transition-transform hover:scale-[103%] rounded-full h-12 w-12 bg-gray-200 border-4 border-[#95CDEF] flex items-center justify-center">
-                {audioPlaying ? <HiVolumeUp className="text-gray-400" /> : <HiVolumeOff className="text-gray-400" />}
+              }}>
+              <button className="hover:cursor-wii transition-transform hover:scale-[103%] rounded-full lg:h-12 lg:w-12 md:h-8 md:w-8 bg-gray-200 border-4 border-[#95CDEF] flex items-center justify-center">
+                {audioPlaying ? (
+                  <HiVolumeUp className="text-gray-400 text-xl" />
+                ) : (
+                  <HiVolumeOff className="text-gray-400 text-xl" />
+                )}
               </button>
             </div>
             <div
               className="hover:drop-shadow-[0_0_10px_rgba(149,205,239,0.75)]"
               onMouseEnter={() => selectSound()}
               onMouseLeave={() => stopSelect()}
-              onClick={() => clickSound()}
-            >
+              onClick={() => clickSound()}>
               <Link
                 href="https://www.linkedin.com/in/andrew-hale6"
                 target="_blank"
-                className="hover:cursor-wii transition-transform hover:scale-[103%] rounded-full h-32 w-32 bg-gray-200 border-4 border-[#95CDEF] flex items-center justify-center"
-              >
+                className="hover:cursor-wii transition-transform hover:scale-[103%] rounded-full lg:h-32 lg:w-32 md:h-20 md:w-20 bg-gray-200 border-4 border-[#95CDEF] flex items-center justify-center">
                 <BsLinkedin className="text-gray-400 text-5xl" />
               </Link>
             </div>
@@ -66,13 +73,11 @@ const MenuBar: React.FC<Props> = ({ audioPlaying, handleAudioToggle }) => {
             className="hover:drop-shadow-[0_0_10px_rgba(149,205,239,0.75)]"
             onMouseEnter={() => selectSound()}
             onMouseLeave={() => stopSelect()}
-            onClick={() => clickSound()}
-          >
+            onClick={() => clickSound()}>
             <Link
               href="mailto:andrew.z.hale1@gmail.com"
               target="_blank"
-              className="hover:cursor-wii transition-transform hover:scale-[103%] rounded-full h-32 w-32 bg-gray-200 border-4 border-[#95CDEF] flex items-center justify-center"
-            >
+              className="hover:cursor-wii transition-transform hover:scale-[103%] rounded-full lg:h-32 lg:w-32 md:h-20 md:w-20 bg-gray-200 border-4 border-[#95CDEF] flex items-center justify-center">
               <IoMdMail className="text-gray-400 text-6xl" />
             </Link>
           </div>
@@ -86,7 +91,7 @@ const MenuBar: React.FC<Props> = ({ audioPlaying, handleAudioToggle }) => {
 
 const FillerBar = () => {
   const [barsNeeded, setBarsNeeded] = useState(0);
-  const { height, width } = useWindowDimensions();
+  const { height, width } = useWindowSize();
 
   useEffect(() => {
     if (width) {
@@ -101,6 +106,7 @@ const FillerBar = () => {
   if (barsNeeded === 0) {
     return <div />;
   }
+
 
   return (
     <div className="w-[calc((100%-1512px)/2)] h-[192px] flex translate-y-[1px]">

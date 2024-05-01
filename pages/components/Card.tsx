@@ -57,7 +57,7 @@ const Card = ({ title, description, image, link }: CardProps) => {
       </div>
       {hover && (
         <div className="absolute w-full justify-center flex pt-2 z-50">
-          <p className="text-gray-500 text-xl bg-white px-6 rounded-full border-[2px] border-[#cacaca]">
+          <p className="text-gray-500 xl:text-xl lg:text-lg md:text-base bg-white px-6 rounded-full border-[2px] border-[#cacaca]">
             {title}
           </p>
         </div>
@@ -177,7 +177,7 @@ const Workshop = () => {
           className="text-violet-400 hover:bg-gray-500">
           ASA
           {hoverASA && (
-            <div className="absolute tracking-tighter py-[0.125rem] z-50 translate-y-[5px] bg-[#212121] border-[0.5px] px-2">
+            <div className="absolute tracking-tighter py-[0.125rem] lg:text-md md:text-sm z-50 translate-y-[5px] bg-[#212121] border-[0.5px] px-2">
               Aggie Sports Analytics
             </div>
           )}
@@ -189,7 +189,7 @@ const Workshop = () => {
           className="text-cyan-400 hover:bg-gray-500">
           WiCS
           {hoverWiCS && (
-            <div className="absolute py-[0.125rem] z-50 translate-y-[5px] bg-[#212121] border-[0.5px] px-2">
+            <div className="absolute py-[0.125rem] z-50 lg:text-md md:text-sm translate-y-[5px] bg-[#212121] border-[0.5px] px-2">
               Women in CS
             </div>
           )}
@@ -198,7 +198,7 @@ const Workshop = () => {
       </div>
 
       <div className="flex text-gray-200 items-center">
-        <div className="text-sm text-[.8rem]">
+        <div className="lg:text-[.8rem] md:text-[.6rem]">
           {!hover && (
             <div className="w-[0.5rem] h-[1rem] bg-gray-200 animate-blink" />
           )}
