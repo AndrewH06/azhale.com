@@ -32,9 +32,9 @@ const MenuBar: React.FC<Props> = ({
       className="z-50 flex justify-center fixed bottom-0">
       <FillerBar />
       <div className="w-[1512px]">
-        <div className="absolute w-[1512px] flex flex-col items-center lg:pt-3 md:pt-1">
+        <div className="absolute w-[1512px] flex flex-col items-center lg:pt-3 pt-1">
           <h1 className="text-4xl font-mono text-gray-400">Andrew Z Hale</h1>
-          <p className="lg:pt-12 md:pt-4 text-2xl text-gray-600 tracking-widest">
+          <p className="lg:pt-12 pt-6 text-2xl text-gray-600 tracking-widest">
             {days[date.getDay()]} {date.getMonth() + 1}/{date.getDate()}
           </p>
         </div>
@@ -48,7 +48,7 @@ const MenuBar: React.FC<Props> = ({
                 handleAudioToggle();
                 clickSound();
               }}>
-              <button className="hover:cursor-wii transition-transform hover:scale-[103%] rounded-full lg:h-12 lg:w-12 md:h-8 md:w-8 bg-gray-200 border-4 border-[#95CDEF] flex items-center justify-center">
+              <button className="hover:cursor-wii transition-transform hover:scale-[103%] rounded-full lg:h-12 lg:w-12 h-8 w-8 bg-gray-200 border-4 border-[#95CDEF] flex items-center justify-center">
                 {audioPlaying ? (
                   <HiVolumeUp className="text-gray-400 text-xl" />
                 ) : (
@@ -64,8 +64,8 @@ const MenuBar: React.FC<Props> = ({
               <Link
                 href="https://www.linkedin.com/in/andrew-hale6"
                 target="_blank"
-                className="hover:cursor-wii transition-transform hover:scale-[103%] rounded-full lg:h-32 lg:w-32 md:h-20 md:w-20 bg-gray-200 border-4 border-[#95CDEF] flex items-center justify-center">
-                <BsLinkedin className="text-gray-400 text-5xl" />
+                className="hover:cursor-wii transition-transform hover:scale-[103%] rounded-full lg:h-32 lg:w-32 h-20 w-20 bg-gray-200 border-4 border-[#95CDEF] flex items-center justify-center">
+                <BsLinkedin className="text-gray-400 lg:text-5xl text-3xl" />
               </Link>
             </div>
           </div>
