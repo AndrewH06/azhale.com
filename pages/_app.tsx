@@ -10,7 +10,7 @@ function App({ Component, pageProps }: AppProps) {
         <title>Andrew Hale</title>
         <meta name="description" content="Andrew Z Hale's personal website." />
         <meta property="og:image" content="/azhale_preview.png" />
-        <link rel="icon" href="/azh.ico" />
+        <link rel="icon" href="/azh2.ico" />
       </Head>
       <Component {...pageProps} />
     </>
