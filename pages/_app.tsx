@@ -9,6 +9,7 @@ function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>Andrew Hale</title>
         <meta name="description" content="Andrew Z Hale's personal website." />
+        <meta property="og:image" content="/azhale_preview.png" />
         <link rel="icon" href="/azh.ico" />
       </Head>
       <Component {...pageProps} />
